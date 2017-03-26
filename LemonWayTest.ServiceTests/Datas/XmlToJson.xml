@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Rows xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:x="urn:Row">
+  <!-- Schema -->
+  <xsd:schema targetNamespace="urn:Row" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+    <xsd:element name="Row">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element type="xsd:string" name="s"/>
+          <xsd:element type="xsd:string" name="ExpectedValue"/>
+          <xsd:element type="xsd:string" name="Message"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <!--End Schema-->
+
+  <!--test parse xml value simple-->
+  <x:Row>
+    <x:s><![CDATA[<foo>bar</foo>]]></x:s>
+    <x:ExpectedValue>JObject</x:ExpectedValue>
+    <x:Message>XmlToJson must return Json></x:Message>
+  </x:Row>
+  <!--test parse bad xml to json -->
+  <x:Row>
+    <x:s><![CDATA[foo bar foo]]></x:s>
+    <x:ExpectedValue>false</x:ExpectedValue>
+    <x:Message>XmlToJson wrong xml catch></x:Message>
+  </x:Row>
+  <!--test parse xml value complex-->
+  <x:Row>
+    <x:s><![CDATA[<TRANS><HPAY><ID>103</ID><STATUS>3</STATUS><EXTRA><IS3DS>0</IS3DS><AUTH>031183</AUTH></EXTRA><INT_MSG/><MLABEL>501767XXXXXX6700</MLABEL><MTOKEN>project01</MTOKEN></HPAY></TRANS>]]></x:s>
+    <x:ExpectedValue>JObject</x:ExpectedValue>
+    <x:Message>XmlToJson must return Json></x:Message>
+  </x:Row>
+</Rows>
