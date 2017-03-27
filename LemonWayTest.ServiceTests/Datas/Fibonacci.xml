@@ -7,7 +7,7 @@
       <xsd:complexType>
         <xsd:sequence>
           <xsd:element type="xsd:int" name="n"/>
-          <xsd:element type="xsd:int" name="ExpectedValue"/>
+          <xsd:element type="xsd:decimal" name="ExpectedValue"/>
           <xsd:element type="xsd:string" name="Message"/>
         </xsd:sequence>
       </xsd:complexType>
@@ -24,8 +24,8 @@
   <!--test max value accepted-->
   <x:Row>
     <x:n>100</x:n>
-    <x:ExpectedValue>-980107325</x:ExpectedValue>
-    <x:Message>Fibonacci(100) must return -980107325</x:Message>
+    <x:ExpectedValue>354224848179261915075</x:ExpectedValue>
+    <x:Message>Fibonacci(100) must return 354224848179261915075</x:Message>
   </x:Row>
   <!--test min value not accepted-->
   <x:Row>

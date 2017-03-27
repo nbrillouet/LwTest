@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
 using LemonWayTest.Service;
 using System.Web.Script.Services;
-using log4net;
-using log4net.Config;
 using LemonWayTestService;
 
 namespace LemonWayTest.Web
@@ -25,10 +20,10 @@ namespace LemonWayTest.Web
     {
 
         [WebMethod]
-        public int GetNthFibonacci(int n)
+        public decimal GetNthFibonacci(int n)
         {
             Log4NetService.For(this).Info("BEGIN: Request GetNthFibonacci | parameter(" + n + ")");
-            int nth;
+            decimal nth;
             try
             {
                 nth = ServiceFactory.Current.FibonacciService.GetNthFibonacci(n);
